@@ -1,23 +1,25 @@
+
+
 function getRandomHexColor() {  
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     };
 
-   
-let time;
+    const startButton = document.querySelector('[data-start]');
+    const stopButton = document.querySelector('[data-stop]');
 
-function changeColor () {
-    document.body.style.backgroundColor = getRandomHexColor();
-    time = setTimeout(changeColor, 1000);
-};
+    let timeout;
 
-document.getElementById('startButton').addEventListener('click', () =>{
-    this.disabled = true;
-    document.getElementById('stopButton').disabled = false;
-    changeColor();
-});
+    function changeBackgroundColor() {
+      document.body.style.backgroundColor = getRandomHexColor();
+      timeout = setTimeout(changeBackgroundColor, 1000);
+    }
 
-document.getElementById('stopButton').addEventListener('click', () => {
-    this.disabled = true;
-    document.getElementById('startButton').disabled = false;
-    clearInterval(time);
-});
+    startButton.addEventListener('click', () => {
+      startButton.disabled = true;
+      changeBackgroundColor();
+    });
+
+    stopButton.addEventListener('click', () => {
+      startButton.disabled = false;
+      clearTimeout(timeoutId);
+    });
