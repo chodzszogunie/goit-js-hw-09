@@ -21,5 +21,5 @@ function getRandomHexColor() {
 
     stopButton.addEventListener('click', () => {
       startButton.disabled = false;
-      clearTimeout(timeoutId);
+      clearTimeout(timeout);
     });
